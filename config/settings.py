@@ -60,13 +60,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 import dj_database_url
+# Define database URL from the environment file
+DATABASE_URL = os.environ['SQL_EXTERNAL_DB_URL']
+
+# Configure default database
+DATABASES = {
+    'default': dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=True,
+    ),
+}
 #DATABASES = {}
+'''
 DATABASES = {
 	    'default': dj_database_url.config(
 	        default=os.environ.get('SQL_EXTERNAL_DB_URL'),
 	        conn_max_age=600
 	    )
 	}
+'''
 
 
 AUTH_PASSWORD_VALIDATORS = [
