@@ -1,5 +1,5 @@
 import os
-
+import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -59,8 +59,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-import dj_database_url
+
 # Define database URL from the environment file
+'''
 DATABASE_URL = os.environ['SQL_EXTERNAL_DB_URL']
 
 # Configure default database
@@ -71,15 +72,16 @@ DATABASES = {
         ssl_require=True,
     ),
 }
-#DATABASES = {}
 '''
+#DATABASES = {}
+
 DATABASES = {
 	    'default': dj_database_url.config(
 	        default=os.environ.get('SQL_EXTERNAL_DB_URL'),
 	        conn_max_age=600
 	    )
 	}
-'''
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
