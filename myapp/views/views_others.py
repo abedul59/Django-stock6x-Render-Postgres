@@ -42,17 +42,17 @@ from django.shortcuts import render
 from django.db.models import Sum
 from django.http import JsonResponse
 
-
+from module import func_usbond
 #@permission_required('myapp.Can_enter_AdminOnly', login_url='/login/')
 def adminmain(request, pageindex=None):  #管理頁面
 
     #個別績效串列 
     #一週 一個月 六個月一年
 	
-    #try:
-        #Lists3m = func_usbond.getUSBondYield3m()
-    #except:
-        #Lists3m = func_usbond.getUSBondYield3m()
+    try:
+        Lists3m = func_usbond.getUSBondYield3m()
+    except:
+        Lists3m = func_usbond.getUSBondYield3m()
         
     #try:
         #Lists6m = func_usbond.getUSBondYield6m()
