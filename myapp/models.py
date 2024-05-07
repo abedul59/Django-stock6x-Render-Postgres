@@ -174,3 +174,46 @@ class StockPERseg202404(models.Model):
     press = models.IntegerField(default=0)
     def __str__(self):
         return self.cStockID
+    
+class StockFavs_test168(models.Model):
+    cStockID = models.CharField(max_length=5, default='')
+    cStockName = models.CharField(max_length=5, default='')
+
+    cScore1st = models.CharField(max_length=5, default='') #最近一個月評分
+    cScore2nd = models.CharField(max_length=5, default='') #
+    cScore3rd = models.CharField(max_length=5, default='')
+
+    cTodayClose = models.FloatField(max_length=20, default='') #今日收盤價
+   
+
+    cPredict_EPS = models.CharField(max_length=15, default='') #預估未來EPS
+    cPredict_high_price = models.CharField(max_length=15, default='') #預估未來最高價
+    cPredict_low_price = models.CharField(max_length=15, default='') #預估未來最低價  
+    
+    cNew_up_profit = models.CharField(max_length=25, default='') #預估未來往上空間
+    cNew_down_loss = models.CharField(max_length=25, default='') #預估未來往下空間    
+
+    cPredict_high_price_down30 = models.CharField(max_length=15, default='') #預估未來最高價
+    cPredict_low_price_down30 = models.CharField(max_length=15, default='') #預估未來最低價  
+    
+    cNew_up_profit_down30 = models.CharField(max_length=25, default='') #預估未來往上空間
+    cNew_down_loss_down30 = models.CharField(max_length=25, default='') #預估未來往下空間
+
+
+    cDBURL = models.CharField(max_length=40, default='') #  
+    cRisk_reward = models.FloatField(max_length=20, default='') #預估風險報酬比率  #20201202 可以使用Float
+    cRisk_reward_down30 = models.FloatField(max_length=20, default='') #預估風險報酬比率  #20201202 可以使用Float
+
+
+
+    cEPSach = models.CharField(max_length=20, default='')
+    cStCap = models.CharField(max_length=20, default='')
+    cEPSnPrf = models.CharField(max_length=20, default='')
+    cPERstab = models.CharField(max_length=20, default='')
+
+
+    pubtime = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.cStockID
