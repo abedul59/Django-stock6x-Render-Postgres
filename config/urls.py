@@ -42,7 +42,13 @@ urlpatterns = [
         path('login/', views.login),
         path('logout/', views.logout),
 
+        path('stock6xAdmin/', views.stock6xAdmin),
+
+        path('stock6listall202404/', views.stock6listall202404),
+        path('stock6listall202404score/', views.stock6listall202404score),
+
         path('adminmain/', views.adminmain),
+
 	]
 
 
