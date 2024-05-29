@@ -9,6 +9,13 @@ from django.views.decorators.csrf import csrf_exempt
 
 from myapp import models
 
+#################每個月換資料庫
+#DB1 = Stock6Sign202403
+#DB2 = Stock6Sign202404
+#DB3 = Stock6Sign202405
+#############################################
+
+
 def usersmain_common(request, username=None, pageindex=None):  #使用者功能首頁
 	global page1u
 	pagesize = 20  #8
@@ -43,7 +50,7 @@ def usersmain_common(request, username=None, pageindex=None):  #使用者功能�
 	elif username=='test168':
 		DB = StockFavs_test168  
 		'''  
-
+'''
 	global page1
 	pagesize = 20  #8
 	newsall = DB.objects.all().order_by('-id')
@@ -66,6 +73,7 @@ def usersmain_common(request, username=None, pageindex=None):  #使用者功能�
 		start = (page1-1)*pagesize
 		newsunits = DB.objects.order_by('-id')[start:(start+pagesize)]
 	currentpage = page1
+	'''
     
     
     #MacroWaveA
