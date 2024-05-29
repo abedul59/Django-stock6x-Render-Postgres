@@ -49,6 +49,11 @@ urlpatterns = [
 
         path('adminmain/', views.adminmain),
 
+        path('usersmain_common/', views.usersmain_common),
+        path('usersmain_common/<str:username>/', views.usersmain_common),
+	    path('usersmain_common/<str:username>/<str:pageindex>/', views.usersmain_common),
+
+
 	]
 
 
