@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from myapp import models
-
+from myapp.models import StockPERseg202404
 #################每個月換資料庫
 #DB1 = Stock6Sign202403
 #DB2 = Stock6Sign202404
@@ -50,30 +50,29 @@ def usersmain_common(request, username=None, pageindex=None):  #使用者功能�
 	elif username=='test168':
 		DB = StockFavs_test168  
 		'''  
-'''
+    
 	global page1
 	pagesize = 20  #8
-	newsall = DB.objects.all().order_by('-id')
+	newsall = StockPERseg202404.objects.all().order_by('-id')
 	datasize = len(newsall)
 	totpage = math.ceil(datasize / pagesize)
 	if pageindex==None:
 		page1 = 1
-		newsunits = DB.objects.order_by('-id')[:pagesize]
+		newsunits = StockPERseg202404.objects.order_by('-id')[:pagesize]
 	elif pageindex=='1':
 		start = (page1-2)*pagesize
 		if start >= 0:
-			newsunits = DB.objects.order_by('-id')[start:(start+pagesize)]
+			newsunits = StockPERseg202404.objects.order_by('-id')[start:(start+pagesize)]
 			page1 -= 1
 	elif pageindex=='2':
 		start = page1*pagesize
 		if start < datasize:
-			newsunits = DB.objects.order_by('-id')[start:(start+pagesize)]
+			newsunits = StockPERseg202404.objects.order_by('-id')[start:(start+pagesize)]
 			page1 += 1
 	elif pageindex=='3':
 		start = (page1-1)*pagesize
-		newsunits = DB.objects.order_by('-id')[start:(start+pagesize)]
+		newsunits = StockPERseg202404.objects.order_by('-id')[start:(start+pagesize)]
 	currentpage = page1
-	'''
     
     
     #MacroWaveA
